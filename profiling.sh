@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# iterate over list of functions ['constant', 'linear', 'linear_close_resources']
-for function in 'constant' 'linear' 'linear_close_resources'
+# iterate over list of functions ['constant', 'linear', 'logn']
+for function in 'constant' 'linear' 'logn'
 do
     echo "Running $function"
     # runs functions one by one

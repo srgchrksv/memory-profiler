@@ -46,8 +46,8 @@ def linear(image_paths, results=[]):
         results.append(mp_face_mesh.process(image).multi_face_landmarks[0])
     return results
 
-@log_decorator(f'logs/linear_close_resources_{get_timestamp()}.log')
-def linear_close_resources(image_paths, results=[]):
+@log_decorator(f'logs/logn_{get_timestamp()}.log')
+def logn(image_paths, results=[]):
     # Process images with a new FaceMesh instance created and closed for each image
     for image_path in image_paths:
         mp_face_mesh = mp.solutions.face_mesh.FaceMesh(static_image_mode=True)
@@ -69,8 +69,8 @@ if __name__ == "__main__":
         constant(image_files)
     elif function_to_run == "linear":
         linear(image_files)
-    elif function_to_run == "linear_close_resources":
-        linear_close_resources(image_files)
+    elif function_to_run == "logn":
+        logn(image_files)
     elif function_to_run == "test":
-        assert constant(image_files) == linear(image_files) == linear_close_resources(image_files), "Results are not equal"
+        assert constant(image_files) == linear(image_files) == logn(image_files), "Results are not equal"
         print(f"{'='*20}\nResult are equal\n{'='*20}")
